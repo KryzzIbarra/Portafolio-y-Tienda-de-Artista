@@ -1,0 +1,11 @@
+.menu {
+    /* Estilos que quieras aplicar a la clase menu */
+    position: fixed; /* Fija el div a la ventana */
+    top: 0;         /* Comienza en la parte superior */
+    left: 0;        /* Comienza en la parte izquierda */
+    width: 100%;    /* Ocupar el 100% del ancho */
+    background-color: #FF168D;
+    color: #F5F5F5;
+    padding: 20px;
+    text-align: center;
+  }
