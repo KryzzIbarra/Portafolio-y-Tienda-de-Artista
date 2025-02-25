@@ -4,25 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">  
-    <title>Cristina Ibarra | Artista Visual</title>
+    <title>Cristina Ibarra | Artista Visual | Contacto</title>
 </head>
 <body>
-    <header class="headerr">
-        <div class="menu">
-            <a href="index.html">
-                <img src="" alt="Logo">
-            </a>
-            <nav class="navegacion-menus">
+    <header class="headerr"> 
+            <a href="index.html"> <img class="logo" src="../img/LOGUITO.svg" alt="Logo"></a> 
+            <button id="abrir" class="abrir-menu">
+                <img src="../img/btn_menuu.svg" alt="Abrir Menu" class="icono-menu">
+            </button>
+            <nav class="navegacion-menus" id="nav">
+                <button id="cerrar" class="cerrar-menu" >
+                    <img src="../img/btn_tacheeros.svg" alt="Cerrar" class="icono-menu">
+                </button>
+                <div class="nav-list">
                 <a href="index.html">Inicio</a>
                 <a href="portafolio.html">Portafolio</a>
                 <a href="tienda.html">Tienda</a>
                 <a href="sobremi.html">Sobre Mi</a>
                 <a href="contacto.html" class="active">Contacto</a>
                 <a href="faqs.html">Preguntas Frecuentes</a>
-                <a href="carrito.html">
-                <img src="" alt="Carrito">
-            </a>
+                <a href="carrito.html"> <img id="carrito" class="carrito" src="../img/btn_carritoomdo.svg" alt="Carrito"></a>
+                </div>
             </nav>
+    </header>
+    <section class="fondo-contacto">
+        <div class="info">
+            <h2>Para comisiones y consultas sobre proyectos, <br> envie un
+                correo electrónico a:
+            </h2>
+            <p class="text-correo"><strong>kryzzibarra@gmail.com</strong></p>
+            <p>o envie un mensaje a tráves de este formulario</p>
         </div>
+        <div class="contact-form">
+            <h2>Contacto</h2>
+            <form action="#" method="post">
+                <input type="text" name="firstName" placeholder="Nombre" required>
+                <input type="text" name="lastName" placeholder="Apellido" required>
+                <input type="email" name="email" placeholder="Email *" required>
+                <textarea name="message" placeholder="Escribe un mensaje" required></textarea>
+                <button class="btn" type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <section class="fondo-iconos"> 
+        <div class="social-iconss">
+            <a href="https://www.behance.net/"><img src="../img/icn_behann.svg" alt="Behance"></a>
+            <a href="https://www.instagram.com/"><img src="../img/Icn_Instaa.svg" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/"><img src="../img/icn_tiktokk.svg" alt="Tiktok"></a>
+            <a href="mailto:kryzzibarra@gmail.com" target="_blank"><img src="../img/icn_maill.svg" alt="Enviar correo"> </a>
+            <a href="https://wa.me/5215573303117?text=Hola,%20estoy%20interesado%20en%20tu%20trabajo." target="_blank">
+                <img src="../img/icn_wazzaa.svg" alt="Enviar mensaje por WhatsApp"> </a>
+        </div>
+    </section>
+
+    <footer class="footerr">
+        <div class="primeros-enlaces">
+            <a href="portafolio.html">Portafolio</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="sobremi.html">Sobre Mi</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="segundos-enlaces">
+            <a href="faqs.html">Terminos y condiciones</a>
+            <a href="faqs.html">Soporte</a>
+            <a href="faqs.html">Derechos de autor</a>
+        </div>
+        <div class="iconos-social-foot">
+            <a href="https://www.behance.net/"><img class="icon-imgs" src="../img/icn_behann.svg" alt="Behance"></a>
+            <a href="https://www.instagram.com/"><img class="icon-imgs" src="../img/Icn_Instaa.svg" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/"><img class="icon-imgs" src="../img/icn_tiktokk.svg" alt="Tiktok"></a>
+            <a href="mailto:kryzzibarra@gmail.com" target="_blank"><img class="icon-imgs" src="../img/icn_maill.svg" alt="Enviar correo"> </a>
+            <a href="https://wa.me/5215573303117?text=Hola,%20estoy%20interesado%20en%20tu%20trabajo." target="_blank">
+                <img class="icon-imgs" src="../img/icn_wazzaa.svg" alt="Enviar mensaje por WhatsApp"> </a>
+        </div>
+    </footer>
+    <script src="../js/app.js"></script> 
+</body>
+</html>

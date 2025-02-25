@@ -48,6 +48,10 @@ body {
 .logo {
   max-width: 5rem;
 }
+h1 {
+  font-family:  'MiFuente';
+  color: #FF168D;
+}
 
 .navegacion-menus a{
   color: #D4D9DE; /*Color del enlace normal*/
@@ -64,7 +68,6 @@ body {
 .navegacion-menus a.active {
   color: #430055; /*Color del enlace activo*/
   font-weight: bold; /*Resaltar con negrita*/
-
 }
 .carrito {
   width: 3rem;
@@ -97,11 +100,6 @@ body {
     background-color: transparent;
     border: none;
   }
-  .btn-abrirIcons {
-    display: block;
-    cursor: pointer;
-    padding: 0;
-  }
   .icono-menu {
     width: 3rem;
     height: 3rem;
@@ -126,6 +124,10 @@ body {
     opacity: 1;
     visibility: visible;
   }
+  .navegacion-menus a.active {
+    color: #007100; /*Color del enlace activo*/
+    font-weight: bold; /*Resaltar con negrita*/
+  }
   .nav-list {
     display: flex;
     flex-direction: column;
@@ -138,6 +140,15 @@ body {
     color: #FF168D;
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    } to {
+      opacity: 1;
+    }
+  }
+}
+@media screen and (max-width: 700px){
   .btn-abrirIcons {
     display: block;
   }
@@ -168,12 +179,10 @@ body {
   .icons-social img:hover {
     transform: scale(1.2);
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    } to {
-      opacity: 1;
-    }
+  .btn-abrirIcons {
+    display: block;
+    cursor: pointer;
+    padding: 0;
   }
 }
 /*Termina Globales*/
@@ -224,20 +233,21 @@ body {
   padding-right: 3rem;
   padding-top: 5.5rem;
 }
-.scroll-img {
-  width: 50px; /* Ajusta el tamaño de la imagen */
-  height: auto;
-  cursor: pointer;
-  padding-left: 1rem;
-  padding-bottom: 3.5rem;
-  transition: transform 0.3s ease; /* Animación al pasar el cursor */
+.scroll-img { /*Ajustes para el diseño de un scroll en la pantalla principal*/
+  width: 50px; /* Ajusta el tamaño de la imagen, horizontal */
+  height: auto; /*Ajusta el tamaño de la imagen, vertical*/
+  cursor: pointer; /*Agrega efecto en el cursor para invitar a dar click sobre el elemento*/
+  padding-left: 1rem; /*Agrega espacio a la izquierda de nuestro scroll */
+  padding-bottom: 3.5rem; /*Agrega espacio debajo de nuestro scroll*/
+  transition: transform 0.3s ease; /* Animación al pasar el cursor*/
 }
-.scroll-img:hover {
-  transform: scale(1.5); /* Aumenta ligeramente el tamaño al pasar el cursor */
+.scroll-img:hover { /*Ajustes al scroll mientras esta el cursor encima del elemento*/
+  transform: scale(1.5); /* Aumenta ligeramente el tamaño al pasar el cursorde nuestro scroll */
 }
-.abrirSocial {
-  display: none;
+.abrirSocial { /*Ajuste para el boton de hamburguesa*/
+  display: none; /*No es visible, hasta que se cumpla un tamaño movil*/
 }
+
 /* Media Queries pantalla principal */
 @media screen and (min-width: 601px) and (max-width: 1024px)  {
   .grids {
@@ -371,10 +381,12 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   margin: .5rem;
+  margin-bottom: 1rem;
   color: white;
   font-family: 'MiFuente';
   font-weight: 300;
   font-size: 2.7rem;
+  text-align: center;
 }
 .puntos{
   display: flex;
@@ -512,7 +524,581 @@ body {
   }
 }
 /*Termina Tercera pagina INDEX -SObreMi*/
+/*PAGINA PORTAFOLIO*/
+.fondo-general {
+  font-family: 'Poppins';
+  background-color: black;
+  color: #430055;
+  text-align: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+}
+.fondo-general h3{
+  text-shadow: -1px -1px 0 #bf77fa,  
+               1px -1px 0 #bf77fa,  
+              -1px  1px 0 #bf77fa,  
+               1px  1px 0 #bf77fa;
+}
+.portfolio-gtradi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 auto; 
+  max-width: 1300px;
+  white-space: pre-line;
+}
+.portfolio-img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid rgb(215, 18, 80);
+  transition: transform 0.3s ease;
+}
+.portfolio-img:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none; /* Evita que el pop-up bloquee clics cuando está oculto */
+  transition: opacity 0.3s, visibility 0.3s, pointer-events 0.3s;
+}
+.popup.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-content {
+  background: #430055;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+  max-width: 90%;
+  width: 1000px;
+}
+.popup-image-text {
+  display: flex; /* Coloca la imagen y el texto en una fila */
+  align-items: center; /* Alinea los elementos en la parte superior */
+  gap: 20px; /* Espacio entre la imagen y el texto */
+  min-height: 400px;
+}
 
+.popup-image-text img {
+  max-width: 600px; /* Ancho máximo de la imagen */
+  max-height: 600px;
+  width: auto;
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+  display: block;
+  margin: 0 auto;
+}
+
+.popup-text {
+  flex: 1; /* El texto ocupa el espacio restante */
+  margin-top: 3rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #FF168D; /* Color del botón de cerrar x */
+  background-color: #430055;
+  border: 2px solid #FF168D;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.close-btn:hover {
+  background-color: #FF168D; /* Fondo oscuro al pasar el cursor */
+  color: #fff; /* Texto blanco al pasar el cursor */
+}
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popup-buttons button img.flecha {
+  width: 50px; /* Ajusta el tamaño de las flechas */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.popup-buttons button:hover img.flecha {
+  transform: scale(1.1); /* Efecto de escala al pasar el cursor */
+}
+
+#popup-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FF168D;
+  font-family: 'Poppins';
+  text-align: center;
+}
+#popup-description{
+  text-align: center;
+  font-weight: bold;
+}
+#popup-description,
+#popup-description2 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  white-space: pre-line; /* Respeta los saltos de línea */
+  color: #D4D9DE;
+}
+
+#popup-disponible {
+  font-size: 14px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#popup-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#popup-description,
+#popup-description2 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.contacts-portfolio {
+  color: #D4D9DE;
+}
+a{
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-contacto {
+  background-color: #FF168D;
+}
+
+.btn-contacto:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-tienda {
+  background-color: #430055;
+}
+
+.btn-tienda:hover {
+  background-color: #e53935;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/*TERMINA PORTAFOLIO*/
+/*PAGINA SOBRE-MI*/
+.fondo-sobremi h1 {
+  color: #FF168D;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.fondo-sobremi {
+  background-color: black;
+  font-family: 'Poppins';
+  color: black;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.sobremi-inicio {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: auto auto; 
+  gap: 1rem; 
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.img-izquierda {
+  grid-column: 1 / 2; 
+  grid-row: 1 / 2; 
+  width: 60%; 
+  height: auto; 
+  border-radius: 10px; 
+}
+
+.parrafo-derecha {
+  grid-column: 2 / 3; 
+  grid-row: 1 / 2; 
+  align-self: center; 
+  padding: 1rem;
+  background-color: rgba(243, 136, 177, 0.8); 
+  border-radius: 10px; 
+  font-weight: bold;
+}
+
+.parrafo-izquierda {
+  grid-column: 1 / 2; 
+  grid-row: 2 / 3; 
+  background-color: rgba(243, 136, 177, 0.8); 
+  border-radius: 10px;
+  font-weight: 700; 
+}
+
+.img-derecha {
+  grid-column: 2 / 3; 
+  grid-row: 2 / 3; 
+  width: 100%; 
+  height: auto; 
+  border-radius: 10px; 
+}
+/*IMAGENES DE SOBRE MI*/
+.galeria {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+ /* max-width: 1200px;*/
+  margin: 0 auto;
+  background-color: black;
+}
+
+.imagen-contenedor {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.imagen {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(160, 12, 59, 0.6); /* Fondo semitransparente */
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imagen-contenedor:hover .overlay {
+  opacity: 1; /* Muestra el overlay al pasar el cursor */
+}
+
+.imagen-contenedor:hover .imagen {
+  transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+}
+
+/* POPUPS SOBRE-MI*/
+.popups {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.popups.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-contentt {
+  background: #430055;
+  color: #D4D9DE;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: left;
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.fecha-expo{
+  font-family: 'Poppins';
+  color: #FF168D;
+}
+.titulo-expo{
+  font-family: 'Poppins';
+  color: #D4D9DE;
+  font-weight: bold;
+}
+.popups h2{
+  font-family: 'MiFuente';
+  color: #FF168D;
+}
+.parrafo-pops{
+  font-style: italic;
+  color: #bf77fa;
+}
+/*TERMINA PAGINA SOBRE-MI*/
+
+/*PAGINA CONTACTO*/
+.fondo-contacto{
+  background-color: black;
+  font-family: 'Poppins';
+  color: #D4D9DE;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 2rem;
+}
+.info{
+  flex: 1;
+  max-width: 400px;
+  text-align: left;
+  padding-left: 4rem;
+  border-right: 1px solid #bf77fa;
+}
+.text-correo{
+  color: #FF168D;
+}
+.contact-form {
+  background: #71086a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6db2fa;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.fondo-iconos {
+  background-color: black; 
+  padding: 1rem 0; 
+  width: 100%;
+}
+
+.social-iconss {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.social-iconss a {
+  margin: 0 10px;
+}
+.social-iconss img {
+  width: 50px;
+  height: 500px;
+}
+@media (min-width: 768px) {
+  .fondo-contacto {
+      flex-direction: row; /* Volvemos a la disposición en fila en tablets y desktop */
+      padding: 2rem;
+  }
+
+  .info {
+      border-right: 1px solid #bf77fa; 
+      border-bottom: none; 
+      padding-left: 4rem; 
+      padding-right: 2rem; 
+      text-align: left; 
+  }
+
+  .contact-form {
+      width: 300px; 
+  }
+
+  .social-iconss img {
+      width: 100px; 
+      height: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fondo-contacto {
+      gap: 4rem; 
+  }
+
+  .info {
+      max-width: 500px; 
+  }
+}
+/*TERMINA PAGINA CONTACTO*/
+/*FAQS*/
+.faqs {
+  background-color: #bf77fa;
+  padding: 2rem;
+}
+.faqs h2{
+  color: #430055;
+}
+/*TERMINA FAQS*/
+/*TIENDA*/
+.tienda-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tienda-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.tienda-mensaje {
+  display: none; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 105, 180, 0.8); 
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .tienda-imagen {
+      width: 100%;
+      height: auto; 
+      object-fit: contain; 
+  }
+
+  .tienda-mensaje {
+      display: block; 
+  }
+}
+.tienda-boton {
+  position: absolute;
+  bottom: 20%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF69B4; 
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  animation: pulse 2s infinite; 
+}
+
+.tienda-boton:hover {
+  background-color: #FF1493; 
+  animation: none; 
+}
+
+@keyframes pulse {
+  0% {
+      transform: translateX(-50%) scale(1); 
+  }
+  50% {
+      transform: translateX(-50%) scale(1.1); 
+  }
+  100% {
+      transform: translateX(-50%) scale(1); 
+  }
+}
+/*CIERRA TIENDA*/
 /*FOOTER GLOBAL*/
 .footerr {
   background-color: #FF168D;

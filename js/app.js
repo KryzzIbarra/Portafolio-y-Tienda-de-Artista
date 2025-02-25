@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 let imagenes = [
     {
         "url": "../img/Portafolio/img_portgt1.jpg",
@@ -79,14 +80,7 @@ cerrar.addEventListener("click", () => {
     nav.classList.remove("visible");
     carrito.src = '../img/btn_carritooros.svg';
 })
-//abrirIconButton.addEventListener("click", () => {
-  //  if(iconsSocial.computedStyleMap.display == "none"  || iconsSocial.style.display === ""){
-    //    iconsSocial.style.display = "flex";
-    //} else {
-      //  iconsSocial.style.display = "none";
-   // }
-//});
-//document.addEventListener('DOMContentLoaded', function() {
+//Termina menu hamburguesa
     var boton = document.getElementById('abrirIcons');
     var iconsRedes = document.getElementById('iconsRedes');
     var icons = document.getElementById('iconsSocial');
@@ -201,4 +195,4 @@ function posicionCarruselTienda() {
     }
 }
 
-
+});

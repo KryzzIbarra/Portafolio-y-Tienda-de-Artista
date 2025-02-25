@@ -4,25 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">  
-    <title>Cristina Ibarra | Artista Visual</title>
+    <title>Cristina Ibarra | Artista Visual | Sobre mi</title>
 </head>
 <body>
-    <header class="headerr">
-        <div class="menu">
-            <a href="index.html">
-                <img src="" alt="Logo">
-            </a>
-            <nav class="navegacion-menus">
+    <header class="headerr"> 
+            <a href="index.html"> <img class="logo" src="../img/LOGUITO.svg" alt="Logo"></a> 
+            <button id="abrir" class="abrir-menu">
+                <img src="../img/btn_menuu.svg" alt="Abrir Menu" class="icono-menu">
+            </button>
+            <nav class="navegacion-menus" id="nav">
+                <button id="cerrar" class="cerrar-menu" >
+                    <img src="../img/btn_tacheeros.svg" alt="Cerrar" class="icono-menu">
+                </button>
+                <div class="nav-list">
                 <a href="index.html">Inicio</a>
                 <a href="portafolio.html">Portafolio</a>
                 <a href="tienda.html">Tienda</a>
                 <a href="sobremi.html" class="active">Sobre Mi</a>
                 <a href="contacto.html">Contacto</a>
                 <a href="faqs.html">Preguntas Frecuentes</a>
-                <a href="carrito.html">
-                <img src="" alt="Carrito">
-            </a>
+                <a href="carrito.html"> <img id="carrito" class="carrito" src="../img/btn_carritoomdo.svg" alt="Carrito"></a>
+                </div>
             </nav>
+    </header>
+    <section class="fondo-sobremi">
+        <div>
+            <h1>Sobre Mi | Cristina Ibarra <br>Artista Visual & Creativa Digital</h1>
         </div>
+        <div class="sobremi-inicio">
+            <img src="../img/img_yop.jpeg" alt="Foto Cris" class="img-izquierda">
+            <p class="parrafo-derecha">Soy una artista visual y creativa digital apasionada por la intersección entre arte, diseño y tecnología. Mi 
+                experiencia abarca el diseño UX/UI, la fotografía, la ilustración y la producción de gráfica contemporánea, 
+                lo que me ha permitido desarrollar una visión integral de la comunicación visual. He trabajado en 
+                mediación cultural, automatización de procesos y actualmente me interesa especializarme en el 
+                marketing digital, en la creación de contenido y estrategias para eventos culturales y de entretenimiento. 
+                Me entusiasma transformar ideas en experiencias visuales y narrativas que conecten con las personas, 
+                ya sea a través del diseño, la gestión cultural o la producción de contenido.</p>
+            <p class="parrafo-izquierda">A lo largo de mi trayectoria formativa como artista visual, he explorado dentro de la fotografía digital,
+                 así como técnicas tradicionales y contemporáneas en el área de grabado y grafica. Especializándome en estas áreas 
+                 y así mismo explorando el mundo digital practique el montaje digital, lo que me permitió incorporar la digitalización
+                  de mis estampas y realizar diversas experimentaciones. He centrado mi trabajo en la experimentación de la gráfica contemporánea 
+                  como medio para la reconstrucción del recuerdo y la exploración del vacío. Busco generar imágenes a partir de un proceso de 
+                  investigación y creación que busca reestructurar el recuerdo autobiográfico fragmentado o disociativo. La razón principal por lo 
+                  que empleo la fotografía, el grabado y la gráfica contemporánea es poder utilizar objetos significantes y anécdotas familiares para
+                   llevar a cabo un proceso de introspección que reúna fragmentos del recuerdo a través de la experimentación en la creación de mi trabajo 
+                   visual. Esto me ayuda a generar narrativas graficas que funcionan como archivos de conservación de memorias y recuerdos fluctuantes,
+                    al mismo tiempo que exploro la noción del vacío y su relación con la memoria.</p>
+                    <img src="../img/img_yop_clow.png" alt="Cris Ilustracion" class="img-derecha">
+        </div>
+    </section>
+    <section class="galeria">
+        <div class="imagen-contenedor">
+            <img src="../img/img_expo.jpeg" alt="Exposiciones" class="imagen">
+            <div class="overlay">
+              <p>Exposiciones</p>
+            </div>
+          </div>
+          <div class="imagen-contenedor">
+            <img src="../img/img_academy.jpeg" alt="Formación Académica" class="imagen">
+            <div class="overlay">
+              <p>Formación Académica</p>
+            </div>
+          </div>
+          <div class="imagen-contenedor">
+            <img src="../img/img_cv.jpg" alt="CV Extenso" class="imagen">
+            <div class="overlay">
+              <p>Descarga mi CV Extenso</p>
+            </div>
+          </div>
+    </section>
+    <div id="popup-exposiciones" class="popups">
+        <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <h2>Exposiciones</h2>
+          <p class="fecha-expo">27 de Enero de 2023</p>
+          <p class="titulo-expo">Exposición colectiva "Rastros de Identidad" de Grafica tradicional y experimental, en el 
+            Museo de la Ciudad de Cuernavaca (MuCIC). </p>
+          <p class="parrafo-pops">Con el políptico de 9 estampas "Intento de un hallazgo"</p>
+          <p class="fecha-expo">06 de Agosto de 2022 </p>
+          <p class="titulo-expo">Exposición colectiva "Rastros de Identidad" de grafica tradicional y experimental, en el 
+            Museo Valle de la Luna en Lerma. </p>
+          <p class="parrafo-pops">Con el políptico de 9 estampas "Intento de un hallazgo". </p>
+          <p class="fecha-expo"> 10 de Septiembre de 2021</p>
+          <p class="titulo-expo">Exposición del concurso mini print "Tiempo sin tiempo". La 22. Triennale Grenchen en 
+            Grenchen, Suiza, la cual mostro 722 obras admitidas en una gran exposición para pequeños formatos. </p>
+          <p class="parrafo-pops">Con la pieza "Flujos inacabados" </p>
+          <p class="fecha-expo">24 de Septiembre de 2021</p>
+          <p class="titulo-expo"> Exposición Virtual "Efecto COVID - Grafica desde el confinamiento".  
+            En la Galería virtual Luis Nichizawa - Proyecto del Taller de Producción e Investigación Grafica "Carlos Olachea"</p>
+          <p class="parrafo-pops">Con dos instalaciones móviles de 180x115 cm "Autorretrato en Confinamiento I" y "Autorretrato en Confinamiento 
+            II". </p>
+          <p class="fecha-expo">25 de Octubre de 2020 </p>
+          <p class="titulo-expo">Participación en los talleres y exposición de la primera Intervención Grafica - Dia de 
+            muertos en Milpa Alta 2020. </p>
+        </div>
+      </div>
+      
+      <div id="popup-formacion" class="popups">
+        <div class="popup-contentt">
+          <span class="close-btn">&times;</span>
+          <h2>Formación Académica</h2>
+          <p class="titulo-expo">Certificación en Marketing Digital y paid media digital ad certificate by Aleph </p>
+          <p class="parrafo-pops">°2024-Actualmente</p>
+          <p class="titulo-expo">Diplomado para titulación | Desarrollo de páginas responsivas interactivas. Desarrollo web senior y 
+            dispositivo móvil profesional </p>
+          <p class="parrafo-pops">°Facultad de Artes y Diseño, UNAM | 2024 - 2025 </p>
+          <p class="titulo-expo">Licenciatura en Artes Visuales  </p>
+          <p class="parrafo-pops">°Facultad de Artes y Diseño, UNAM | 2018 -2022  </p>
+          <p class="titulo-expo">Técnico en Sistemas Computacionales  </p>
+          <p class="parrafo-pops">°CCH Vallejo, UNAM | 2015 - 2018 </p>
+        </div>
+      </div>
+    <footer class="footerr">
+        <div class="primeros-enlaces">
+            <a href="portafolio.html">Portafolio</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="sobremi.html">Sobre Mi</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="segundos-enlaces">
+            <a href="faqs.html">Terminos y condiciones</a>
+            <a href="faqs.html">Soporte</a>
+            <a href="faqs.html">Derechos de autor</a>
+        </div>
+        <div class="iconos-social-foot">
+          <a href="https://www.behance.net/"><img class="icon-imgs" src="../img/icn_behann.svg" alt="Behance"></a>
+          <a href="https://www.instagram.com/"><img class="icon-imgs" src="../img/Icn_Instaa.svg" alt="Instagram"></a>
+          <a href="https://www.tiktok.com/es/"><img class="icon-imgs" src="../img/icn_tiktokk.svg" alt="Tiktok"></a>
+          <a href="mailto:kryzzibarra@gmail.com" target="_blank"><img class="icon-imgs" src="../img/icn_maill.svg" alt="Enviar correo"> </a>
+          <a href="https://wa.me/5215573303117?text=Hola,%20estoy%20interesado%20en%20tu%20trabajo." target="_blank">
+              <img class="icon-imgs" src="../img/icn_wazzaa.svg" alt="Enviar mensaje por WhatsApp"> </a>
+        </div>
+    </footer>  
+    <script src="../js/sobremi.js"></script>  
+</body>
+</html>
